@@ -43,13 +43,13 @@ const Home = () => {
         <View style={styles.container}>
             <Text>Trip Tracking</Text>
 
-            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}
+            <TouchableOpacity style={styles.button}
                 onPress={handleStart}>
-                <Button title="Start"></Button>
+                <Text style={styles.buttonText}>Start</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}
+            <TouchableOpacity style={styles.button}
                 onPress={handleEnd}>
-                <Button title="End"></Button>
+                <Text style={styles.buttonText}>End</Text>
             </TouchableOpacity>
         </View>
     )
@@ -57,13 +57,24 @@ const Home = () => {
 }
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      padding: 20,
+        flex: 1,
+        padding: 20,
     },
     item: {
-      padding: 10,
-      borderBottomWidth: 1,
-      borderBottomColor: '#ccc',
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+    },
+    button: {
+        backgroundColor: '#007AFF',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 16,
+        textAlign: 'center'
     },
   });
 export default Home;
