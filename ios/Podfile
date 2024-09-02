@@ -45,6 +45,8 @@ target 'MySampleApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'RNRoam', :path => '../node_modules/roam-reactnative/ios/'
+  
   target 'MySampleAppTests' do
     inherit! :complete
     # Pods for testing

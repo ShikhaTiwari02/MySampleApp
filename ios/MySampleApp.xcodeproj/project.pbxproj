@@ -604,7 +604,8 @@
 					"$(inherited)",
 					"-Wl",
 					"-ld_classic",
-					" ",
+					"-Wl",
+					"-ld_classic",
 					"-Wl -ld_classic ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
@@ -680,7 +681,8 @@
 					"$(inherited)",
 					"-Wl",
 					"-ld_classic",
-					" ",
+					"-Wl",
+					"-ld_classic",
 					"-Wl -ld_classic ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";

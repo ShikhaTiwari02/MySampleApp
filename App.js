@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   FlatList,
@@ -21,6 +21,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Home from './component/TripTracking/HomeScreen';
+import Roam from 'roam-reactnative';
 
 
 
@@ -50,31 +52,14 @@ function App() {
     </TouchableOpacity>
   );
 
+  useEffect(()=>{
+    Roam.initialize(this, "e1af14ce0f8943458aa450dd2f2c2af61ee970bec1b48d97ef89fdf3ba081ffd");
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Text style={styles.label}>Select an Option:</Text>
-        <TouchableOpacity
-          style={styles.dropdownButton}
-          onPress={() => setDropdownVisible(!dropdownVisible)}>
-          <Text style={styles.dropdownButtonText}>
-            {selectedValue ? selectedValue.label : 'Select an option...'}
-          </Text>
-        </TouchableOpacity>
-
-        {dropdownVisible && <View style={styles.dropdownContainer}>
-          <FlatList
-            data={dropdownItems}
-            keyExtractor={(item) => item.id}
-            renderItem={renderItem}
-          />
-        </View>}
-
-        {selectedValue && (
-          <Text style={styles.selectedValue}>
-            You selected: {selectedValue.label}
-          </Text>
-        )}
+        <Home />
       </View>
     </SafeAreaView>
   );

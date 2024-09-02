@@ -1,16 +1,18 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <Roam/Roam.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  //[Roam initialize:@"e1af14ce0f8943458aa450dd2f2c2af61ee970bec1b48d97ef89fdf3ba081ffd" :NULL :NULL];
   self.moduleName = @"MySampleApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-
+  
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
