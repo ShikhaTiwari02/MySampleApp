@@ -54,6 +54,7 @@ function App() {
 
   useEffect(()=>{
     //Roam.initialize(this, "e1af14ce0f8943458aa450dd2f2c2af61ee970bec1b48d97ef89fdf3ba081ffd");
+    Roam.requestLocationPermission();
   }, []);
 
   return (
