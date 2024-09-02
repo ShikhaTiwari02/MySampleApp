@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, FlatList, StyleSheet, View, Button } from "react-native";
 import Roam from "roam-reactnative";
 // // Task:
 // Objective: Build a React Native application that tracks trip details (start/end locations and timestamps).
@@ -9,13 +9,13 @@ import Roam from "roam-reactnative";
 // Create the Home Screen with Start/End Trip Buttons and Location Tracking:
 // Start Trip Button: Start Fetch Lat, Long & time and store in app.
 // Stop Trip Button: Stop Fetch location and display Lat, Long & time in lis
-const Home = ()=>{
+const Home = () => {
 
     const [tripdata, setTripData] = useState([]);
     const [tracking, setTracking] = useState(false);
 
 
-    const handleStart=()=>{
+    const handleStart = () => {
         setTracking(true);
         // active tracking
         Roam.startTracking("ACTIVE");
@@ -28,32 +28,42 @@ const Home = ()=>{
                 longitude: location.longitude,
                 timestamp: new Date().toLocaleString()
             };
-            setTripData((prev)=>[...prev, newLocation]);
+            setTripData((prev) => [...prev, newLocation]);
             // Console Output:
             // [{"activity": "S", "location": {"accuracy": 22.686637856849305, "altitude": 288.10509490966797, "latitude": 10.356502722371895, "longitude": 78.00075886670541, "speed": -1}, "recordedAt": "2022-03-22T11:18:04.928Z", "timezone": "+0530", "userId": "6239b06506df1f5c1c375353"},{..}...]
-          });
+        });
     }
-    const handleEnd=()=>{
+    const handleEnd = () => {
         setTracking(false);
         Roam.stopTracking();
         Roam.unSubscribe("LOCATION", "USER1");
     }
 
-    return(
-        <>
+    return (
+        <View style={styles.container}>
             <Text>Trip Tracking</Text>
 
-            <TouchableOpacity style={{flex: 1}}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}
                 onPress={handleStart}>
-                <Text>Start</Text>
+                <Button title="Start"></Button>
             </TouchableOpacity>
-            <TouchableOpacity
+            <TouchableOpacity style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}
                 onPress={handleEnd}>
-                <Text>End</Text>
+                <Button title="End"></Button>
             </TouchableOpacity>
-        </>
+        </View>
     )
 
 }
-
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 20,
+    },
+    item: {
+      padding: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: '#ccc',
+    },
+  });
 export default Home;
